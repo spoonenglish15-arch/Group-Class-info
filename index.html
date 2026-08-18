@@ -37,6 +37,16 @@ h1 span{flex:0 0 auto}
 .accordion-content{padding:0 16px 16px;border-top:1px solid #E8DDD0;background:#FFFBF7}
 .accordion-content p{margin:12px 0 0;font-size:.875rem;line-height:1.6;color:#6B5D4F}
 .manual-image{width:100%;max-width:100%;aspect-ratio:1/1;height:auto;object-fit:contain;border-radius:8px;display:block;border:1px solid #E8DDD0;background:#FAF5EF;margin-top:12px}
+.manual-image-wrap{position:relative}
+.accordion-content > .manual-image-wrap{margin-top:12px}
+.manual-image-wrap .manual-image{margin-top:0}
+.zoom-hint{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 16px;background:rgba(92,74,58,.82);color:#FFFBF7;border-radius:12px;font-size:.75rem;font-weight:600;line-height:1.3;text-align:center;pointer-events:none;opacity:0;transition:opacity .4s ease;z-index:2;box-shadow:0 4px 16px rgba(0,0,0,.15)}
+.zoom-hint.show{opacity:1}
+.expand-arrows{display:flex;align-items:center;justify-content:space-between;width:36px;animation:expandArrows 2s ease-in-out infinite}
+.expand-arrows .arrow{width:8px;height:8px;border-top:2px solid #FFFBF7;border-right:2px solid #FFFBF7;flex-shrink:0}
+.expand-arrows .arrow-left{transform:rotate(-135deg)}
+.expand-arrows .arrow-right{transform:rotate(45deg)}
+@keyframes expandArrows{0%,100%{width:32px}50%{width:72px}}
 .app-logo{display:block;width:100px;height:auto;margin:14px auto 0;border-radius:18px}
 .action-button{margin-top:14px;padding:12px 20px;border:none;border-radius:8px;background:#B8864B;color:#FFFBF7;font-size:.875rem;font-weight:600;cursor:pointer;width:100%;-webkit-tap-highlight-color:transparent;display:block;text-align:center;text-decoration:none}
 .action-button:active{background:#9A7340}
@@ -243,6 +253,9 @@ function showScreen(id) {
   const next = document.getElementById(id);
   if (next) next.classList.add('active');
   fitTitle();
+  if (id === 'new-member-guide' || id === 'existing-member-guide') {
+    updateZoomHints(next);
+  }
 }
 
 document.querySelectorAll('[data-screen]').forEach(btn => {
@@ -268,6 +281,29 @@ function setupDownloadLink(id, url) {
 }
 setupDownloadLink('ios-download-link', IOS_DOWNLOAD_URL);
 setupDownloadLink('android-download-link', ANDROID_DOWNLOAD_URL);
+
+document.querySelectorAll('.manual-image, .existing-images img').forEach(img => {
+  const wrap = document.createElement('div');
+  wrap.className = 'manual-image-wrap';
+  img.parentNode.insertBefore(wrap, img);
+  wrap.appendChild(img);
+  const hint = document.createElement('div');
+  hint.className = 'zoom-hint';
+  hint.innerHTML = '<div class="expand-arrows"><span class="arrow arrow-left"></span><span class="arrow arrow-right"></span></div><span>확대해 보세요</span>';
+  wrap.appendChild(hint);
+});
+
+function updateZoomHints(root) {
+  document.querySelectorAll('.zoom-hint').forEach(h => {
+    h.classList.remove('show');
+    clearTimeout(h._hideTimer);
+  });
+  if (!root) return;
+  const hint = root.querySelector('.zoom-hint');
+  if (!hint) return;
+  hint.classList.add('show');
+  hint._hideTimer = setTimeout(() => hint.classList.remove('show'), 4000);
+}
 
 function showToast(msg) {
   const t = document.getElementById('toast');
