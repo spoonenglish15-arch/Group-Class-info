@@ -17,29 +17,28 @@
 <style>
 *{box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;background:#F0E6DA;margin:0;padding:0;color:#4A3F35}
-.container{max-width:480px;margin:0 auto;padding:16px 16px 32px}
+.container{max-width:480px;margin:0 auto;padding:16px 0 32px}
+.poster{display:block;width:100%;height:auto;margin:0 0 16px}
 .logo{display:block;width:216px;height:auto;margin:8px auto 16px}
 h1{display:flex;justify-content:space-between;align-items:baseline;width:100%;font-size:2.2rem;margin:0 0 20px;padding:0;font-weight:300;text-transform:uppercase;letter-spacing:0;color:#5C4A3A;line-height:1.2;white-space:nowrap}
 h1 span{flex:0 0 auto}
 .screen{display:none}
 .screen.active{display:block}
 .member-select{display:flex;flex-direction:row;gap:8px}
-.member-choice{flex:1;width:auto;padding:16px 16px;border:1px solid #E8DDD0;border-radius:8px;background:#FAF5EF;color:#4A3F35;font-size:.95rem;font-weight:600;cursor:pointer;box-shadow:0 1px 4px rgba(92,74,58,.08);-webkit-tap-highlight-color:transparent}
+.member-choice{flex:1;width:auto;padding:16px 16px;border:none;border-radius:0;background:#FAF5EF;color:#4A3F35;font-size:.95rem;font-weight:600;cursor:pointer;box-shadow:none;-webkit-tap-highlight-color:transparent}
 .member-choice:active{background:#F5EDE4}
-.back-btn{display:inline-flex;align-items:center;gap:6px;margin:0 0 12px;padding:0;border:none;background:none;color:#A68B6B;font-size:.8rem;font-weight:600;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.back-btn{display:inline-flex;align-items:center;gap:6px;margin:0 12px 12px;padding:0;border:none;background:none;color:#A68B6B;font-size:.8rem;font-weight:600;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .back-btn::before{content:"";width:7px;height:7px;border-left:2px solid #A68B6B;border-bottom:2px solid #A68B6B;transform:rotate(45deg)}
-.existing-images{display:flex;flex-direction:column;gap:12px}
-.existing-images img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid #E8DDD0;background:#FAF5EF}
-.accordion-content .existing-images{margin-top:12px}
-.accordion-item{background:#FAF5EF;margin-bottom:6px;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(92,74,58,.08);border:1px solid #E8DDD0}
+.existing-images{display:flex;flex-direction:column;gap:12px;width:100%}
+.existing-images img{width:100%;height:auto;display:block;border-radius:0;border:none;background:#FAF5EF}
+.accordion-content .existing-images{margin-top:0}
+.accordion-item{background:#FAF5EF;margin-bottom:6px;border-radius:0;overflow:hidden;box-shadow:none;border:none;border-top:1px solid #E8DDD0;border-bottom:1px solid #E8DDD0}
 .accordion-header{width:100%;padding:12px 12px 8px;border:none;background:#FAF5EF;text-align:left;font-size:.875rem;font-weight:600;line-height:1.3;color:#4A3F35}
 .accordion-header .num{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;margin-right:8px;background:#C4956A;color:#FFFBF7;border-radius:5px;font-size:.65rem;font-weight:700;vertical-align:middle;flex-shrink:0}
-.accordion-content{padding:0 16px 16px;border-top:1px solid #E8DDD0;background:#FFFBF7}
-.accordion-content p{margin:12px 0 0;font-size:.875rem;line-height:1.6;color:#6B5D4F}
-.manual-image{width:100%;max-width:100%;aspect-ratio:1/1;height:auto;object-fit:contain;border-radius:8px;display:block;border:1px solid #E8DDD0;background:#FAF5EF;margin-top:12px}
-.manual-image-wrap{position:relative}
-.accordion-content > .manual-image-wrap{margin-top:12px}
-.manual-image-wrap .manual-image{margin-top:0}
+.accordion-content{padding:0 0 16px;border-top:1px solid #E8DDD0;background:#FFFBF7}
+.accordion-content p{margin:12px 16px 0;font-size:.875rem;line-height:1.6;color:#6B5D4F}
+.manual-image{width:100%;max-width:100%;height:auto;object-fit:contain;border-radius:0;display:block;border:none;background:#FAF5EF;margin:0}
+.manual-image-wrap{position:relative;width:100%}
 .zoom-hint{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 16px;background:rgba(92,74,58,.82);color:#FFFBF7;border-radius:12px;font-size:.75rem;font-weight:600;line-height:1.3;text-align:center;pointer-events:none;opacity:0;transition:opacity .4s ease;z-index:2;box-shadow:0 4px 16px rgba(0,0,0,.15)}
 .zoom-hint.show{opacity:1}
 .expand-arrows{display:flex;align-items:center;justify-content:space-between;width:36px;animation:expandArrows 2s ease-in-out infinite}
@@ -50,9 +49,9 @@ h1 span{flex:0 0 auto}
 .app-logo{display:block;width:100px;height:auto;margin:14px auto 0;border-radius:18px}
 .action-button{margin-top:14px;padding:12px 20px;border:none;border-radius:8px;background:#B8864B;color:#FFFBF7;font-size:.875rem;font-weight:600;cursor:pointer;width:100%;-webkit-tap-highlight-color:transparent;display:block;text-align:center;text-decoration:none}
 .action-button:active{background:#9A7340}
-.download-buttons{display:flex;flex-direction:row;gap:8px;margin-top:14px}
+.download-buttons{display:flex;flex-direction:row;gap:8px;margin:14px 16px 0}
 .download-buttons .action-button{margin-top:0;flex:1}
-.kakao-channel-wrap{margin-top:24px;padding-top:8px}
+.kakao-channel-wrap{margin-top:24px;padding:8px 16px 0}
 .kakao-channel-text{margin:0 0 10px;font-size:.875rem;font-weight:600;text-align:center;color:#5C4A3A;line-height:1.4}
 .kakao-channel-button{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 20px;border:none;border-radius:8px;background:#FEE500;color:#3C1E1E;font-size:.9rem;font-weight:700;text-decoration:none;-webkit-tap-highlight-color:transparent;box-shadow:0 2px 6px rgba(92,74,58,.12)}
 .kakao-channel-button:active{background:#F5DC00}
@@ -61,8 +60,8 @@ h1 span{flex:0 0 auto}
 </head>
 <body>
 <div class="container">
-<img src="logo.png" alt="Logo" class="logo">
 <h1>GROUP CLASS 신청하기</h1>
+<img src="image/poster.jpg" alt="GROUP CLASS 영어회화 그룹클래스" class="poster">
 
 <div id="member-select" class="screen active">
 <div class="member-select">
@@ -74,8 +73,8 @@ h1 span{flex:0 0 auto}
 <div id="existing-member-guide" class="screen">
 <button type="button" class="back-btn" data-screen="member-select">멤버 선택</button>
 <div class="existing-images">
-<img src="image/1.jpg" alt="기존멤버 안내 1">
-<img src="image/2.jpg" alt="기존멤버 안내 2">
+<img src="image/신규%202.jpg" alt="기존멤버 안내 1">
+<img src="image/신규%203.jpg" alt="기존멤버 안내 2">
 </div>
 </div>
 
@@ -95,7 +94,7 @@ h1 span{flex:0 0 auto}
 <div class="accordion-item">
 <div class="accordion-header"><span class="num">2</span>회원가입 하기</div>
 <div class="accordion-content">
-<img src="image/3.jpg" class="manual-image" alt="회원가입 하기">
+<img src="image/신규%201.jpg" class="manual-image" alt="회원가입 하기">
 </div>
 </div>
 
@@ -103,8 +102,8 @@ h1 span{flex:0 0 auto}
 <div class="accordion-header"><span class="num">3</span>그룹클래스 구매하기</div>
 <div class="accordion-content">
 <div class="existing-images">
-<img src="image/1.jpg" alt="그룹클래스 구매하기 1">
-<img src="image/2.jpg" alt="그룹클래스 구매하기 2">
+<img src="image/신규%202.jpg" alt="그룹클래스 구매하기 1">
+<img src="image/신규%203.jpg" alt="그룹클래스 구매하기 2">
 </div>
 </div>
 </div>
