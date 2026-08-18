@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GROUP CLASS 신청하기</title>
+<meta name="description" content="스푼잉글리쉬 앱 사용 매뉴얼">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="스푼잉글리쉬">
+<meta property="og:title" content="GROUP CLASS 신청하기">
+<meta property="og:description" content="스푼잉글리쉬 앱 사용 매뉴얼">
+<meta property="og:url" content="https://spoonenglish15-arch.github.io/App_user_manual_0620-/">
+<meta property="og:image" content="https://spoonenglish15-arch.github.io/App_user_manual_0620-/link_thumb_2nd.jpg">
+<meta property="og:image:secure_url" content="https://spoonenglish15-arch.github.io/App_user_manual_0620-/link_thumb_2nd.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="스푼잉글리쉬 앱 사용 매뉴얼">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GROUP CLASS 신청하기">
+<meta name="twitter:description" content="스푼잉글리쉬 앱 사용 매뉴얼">
+<meta name="twitter:image" content="https://spoonenglish15-arch.github.io/App_user_manual_0620-/link_thumb_2nd.jpg">
+<link rel="image_src" href="https://spoonenglish15-arch.github.io/App_user_manual_0620-/link_thumb_2nd.jpg">
+<link rel="icon" href="link_thumb_2nd.jpg" type="image/jpeg">
+<link rel="apple-touch-icon" href="link_thumb_2nd.jpg">
+<style>
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;background:#F0E6DA;margin:0;padding:0;color:#4A3F35}
+.container{max-width:480px;margin:0 auto;padding:16px 16px 32px}
+.logo{display:block;width:216px;height:auto;margin:8px auto 16px}
+h1{display:flex;justify-content:space-between;align-items:baseline;width:100%;font-size:2.2rem;margin:0 0 20px;padding:0;font-weight:300;text-transform:uppercase;letter-spacing:0;color:#5C4A3A;line-height:1.2;white-space:nowrap}
+h1 span{flex:0 0 auto}
+.screen{display:none}
+.screen.active{display:block}
+.member-select{display:flex;flex-direction:row;gap:8px}
+.member-choice{flex:1;width:auto;padding:16px 16px;border:1px solid #E8DDD0;border-radius:8px;background:#FAF5EF;color:#4A3F35;font-size:.95rem;font-weight:600;cursor:pointer;box-shadow:0 1px 4px rgba(92,74,58,.08);-webkit-tap-highlight-color:transparent}
+.member-choice:active{background:#F5EDE4}
+.back-btn{display:inline-flex;align-items:center;gap:6px;margin:0 0 12px;padding:0;border:none;background:none;color:#A68B6B;font-size:.8rem;font-weight:600;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.back-btn::before{content:"";width:7px;height:7px;border-left:2px solid #A68B6B;border-bottom:2px solid #A68B6B;transform:rotate(45deg)}
+.existing-images{display:flex;flex-direction:column;gap:12px}
+.existing-images img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid #E8DDD0;background:#FAF5EF}
+.accordion-content .existing-images{margin-top:12px}
+.accordion-item{background:#FAF5EF;margin-bottom:6px;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(92,74,58,.08);border:1px solid #E8DDD0}
+.accordion-header{width:100%;padding:12px 12px 8px;border:none;background:#FAF5EF;text-align:left;font-size:.875rem;font-weight:600;line-height:1.3;color:#4A3F35}
+.accordion-header .num{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;margin-right:8px;background:#C4956A;color:#FFFBF7;border-radius:5px;font-size:.65rem;font-weight:700;vertical-align:middle;flex-shrink:0}
+.accordion-content{padding:0 16px 16px;border-top:1px solid #E8DDD0;background:#FFFBF7}
+.accordion-content p{margin:12px 0 0;font-size:.875rem;line-height:1.6;color:#6B5D4F}
+.manual-image{width:100%;max-width:100%;aspect-ratio:1/1;height:auto;object-fit:contain;border-radius:8px;display:block;border:1px solid #E8DDD0;background:#FAF5EF;margin-top:12px}
+.app-logo{display:block;width:100px;height:auto;margin:14px auto 0;border-radius:18px}
+.action-button{margin-top:14px;padding:12px 20px;border:none;border-radius:8px;background:#B8864B;color:#FFFBF7;font-size:.875rem;font-weight:600;cursor:pointer;width:100%;-webkit-tap-highlight-color:transparent;display:block;text-align:center;text-decoration:none}
+.action-button:active{background:#9A7340}
+.download-buttons{display:flex;flex-direction:row;gap:8px;margin-top:14px}
+.download-buttons .action-button{margin-top:0;flex:1}
+.kakao-channel-wrap{margin-top:24px;padding-top:8px}
+.kakao-channel-text{margin:0 0 10px;font-size:.875rem;font-weight:600;text-align:center;color:#5C4A3A;line-height:1.4}
+.kakao-channel-button{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 20px;border:none;border-radius:8px;background:#FEE500;color:#3C1E1E;font-size:.9rem;font-weight:700;text-decoration:none;-webkit-tap-highlight-color:transparent;box-shadow:0 2px 6px rgba(92,74,58,.12)}
+.kakao-channel-button:active{background:#F5DC00}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#5C4A3A;color:#FAF5EF;padding:12px 24px;border-radius:8px;display:none;font-size:.875rem;z-index:100;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="container">
+<img src="logo.png" alt="Logo" class="logo">
+<h1>GROUP CLASS 신청하기</h1>
+
+<div id="member-select" class="screen active">
+<div class="member-select">
+<button type="button" class="member-choice" data-screen="new-member-guide">신규멤버</button>
+<button type="button" class="member-choice" data-screen="existing-member-guide">기존멤버</button>
+</div>
+</div>
+
+<div id="existing-member-guide" class="screen">
+<button type="button" class="back-btn" data-screen="member-select">멤버 선택</button>
+<div class="existing-images">
+<img src="image/1.jpg" alt="기존멤버 안내 1">
+<img src="image/2.jpg" alt="기존멤버 안내 2">
+</div>
+</div>
+
+<div id="new-member-guide" class="screen">
+<button type="button" class="back-btn" data-screen="member-select">멤버 선택</button>
+<div class="accordion-item">
+<div class="accordion-header"><span class="num">1</span>먼저 앱을 다운받아주세요!</div>
+<div class="accordion-content">
+<img src="logo2.png" alt="스푼잉글리쉬 앱" class="app-logo">
+<div class="download-buttons">
+<a href="#" class="action-button" id="ios-download-link">iOS 다운로드</a>
+<a href="#" class="action-button" id="android-download-link">Android 다운로드</a>
+</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<div class="accordion-header"><span class="num">2</span>회원가입 하기</div>
+<div class="accordion-content">
+<img src="image/3.jpg" class="manual-image" alt="회원가입 하기">
+</div>
+</div>
+
+<div class="accordion-item">
+<div class="accordion-header"><span class="num">3</span>그룹클래스 구매하기</div>
+<div class="accordion-content">
+<div class="existing-images">
+<img src="image/1.jpg" alt="그룹클래스 구매하기 1">
+<img src="image/2.jpg" alt="그룹클래스 구매하기 2">
+</div>
+</div>
+</div>
+
+<div hidden>
+<div class="accordion-item">
+<button class="accordion-header"><span class="num">3</span>튜터링 상품 구매하기</button>
+<div class="accordion-content">
+<img src="상품구매하기1.jpg" class="manual-image" alt="튜터링 상품 구매하기 1">
+<img src="상품구매하기2.jpg" class="manual-image" alt="튜터링 상품 구매하기 2">
+<p>설명 입력</p>
+</div>
+</div>
+
+<div class="accordion-item">
+<button class="accordion-header"><span class="num">4</span>튜터 매칭</button>
+<div class="accordion-content">
+<img src="튜터매칭1.jpg" class="manual-image" alt="튜터 매칭 1">
+<img src="튜터매칭2.jpg" class="manual-image" alt="튜터 매칭 2">
+<img src="튜터매칭3.jpg" class="manual-image" alt="튜터 매칭 3">
+<p>설명 입력</p>
+</div>
+</div>
+
+<div class="accordion-item">
+<button class="accordion-header"><span class="num">5</span>일정확인</button>
+<div class="accordion-content">
+<img src="일정확인.jpg" class="manual-image" alt="일정확인">
+<p>설명 입력</p>
+</div>
+</div>
+
+<div class="accordion-item">
+<button class="accordion-header"><span class="num">6</span>일정변경</button>
+<div class="accordion-content">
+<img src="일정변경.jpg" class="manual-image" alt="일정변경">
+<p>설명 입력</p>
+</div>
+</div>
+
+<div class="accordion-item">
+<button class="accordion-header"><span class="num">7</span>나의 수업내용 확인</button>
+<div class="accordion-content">
+<img src="수업내용확인1.jpg" class="manual-image" alt="나의 수업내용 확인 1">
+<img src="수업내용확인2.jpg" class="manual-image" alt="나의 수업내용 확인 2">
+<img src="수업내용확인3.jpg" class="manual-image" alt="나의 수업내용 확인 3">
+<p>설명 입력</p>
+</div>
+</div>
+
+<div class="accordion-item">
+<button class="accordion-header"><span class="num">8</span>수업 연장하기 (수강권 재구매)</button>
+<div class="accordion-content">
+<img src="수업연장하기.jpg" class="manual-image" alt="수업 연장하기">
+<p>설명 입력</p>
+</div>
+</div>
+
+<div class="accordion-item">
+<button class="accordion-header"><span class="num">9</span>문의하기 / 수강영수증</button>
+<div class="accordion-content">
+<img src="문의하기.jpg" class="manual-image" alt="문의하기">
+<p>설명 입력</p>
+</div>
+</div>
+
+<div class="accordion-item">
+<button class="accordion-header"><span class="num">10</span>커뮤니티</button>
+<div class="accordion-content">
+<img src="커뮤니티.jpg" class="manual-image" alt="커뮤니티">
+<p>설명 입력</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="kakao-channel-wrap">
+<p class="kakao-channel-text">앱 사용 관련해서 궁금한것 있으시면▼</p>
+<button type="button" class="kakao-channel-button" onclick="window.open('http://pf.kakao.com/_xaxoiCj','_blank')">카카오채널 문의하기</button>
+</div>
+
+</div>
+
+<div id="toast" class="toast"></div>
+<audio id="button-sound" src="button.wav" preload="auto"></audio>
+
+<script>
+function fitTitle() {
+  const title = document.querySelector('h1');
+  if (!title) return;
+
+  if (!title.dataset.charSplit) {
+    const chars = [...title.textContent];
+    title.textContent = '';
+    chars.forEach(ch => {
+      const span = document.createElement('span');
+      span.textContent = ch === ' ' ? '\u00A0' : ch;
+      title.appendChild(span);
+    });
+    title.dataset.charSplit = '1';
+  }
+
+  const parent = title.parentElement;
+  const cs = getComputedStyle(parent);
+  const maxWidth = parent.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+
+  const spans = [...title.children];
+  let lo = 8, hi = 64, best = 8;
+  for (let i = 0; i < 24; i++) {
+    const mid = (lo + hi) / 2;
+    title.style.fontSize = mid + 'px';
+    const total = spans.reduce((sum, el) => sum + el.getBoundingClientRect().width, 0);
+    if (total <= maxWidth) {
+      best = mid;
+      lo = mid;
+    } else {
+      hi = mid;
+    }
+  }
+  title.style.fontSize = best + 'px';
+}
+fitTitle();
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitTitle);
+window.addEventListener('resize', fitTitle);
+
+const buttonSound = document.getElementById('button-sound');
+
+let lastButtonSoundAt = 0;
+
+function playButtonSound() {
+  const now = Date.now();
+  if (now - lastButtonSoundAt < 250) return;
+  lastButtonSoundAt = now;
+
+  buttonSound.pause();
+  buttonSound.currentTime = 0;
+  buttonSound.play().catch(() => {});
+}
+
+document.addEventListener('click', (e) => {
+  if (e.target.closest('button, a.action-button')) playButtonSound();
+}, { capture: true });
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
+  const next = document.getElementById(id);
+  if (next) next.classList.add('active');
+  fitTitle();
+}
+
+document.querySelectorAll('[data-screen]').forEach(btn => {
+  btn.addEventListener('click', () => showScreen(btn.dataset.screen));
+});
+
+// 앱 다운로드 링크 — URL 입력 시 각 버튼에 연동됩니다
+const IOS_DOWNLOAD_URL = 'https://apps.apple.com/kr/app/%EC%8A%A4%ED%91%BC%EC%9E%89%EA%B8%80%EB%A6%AC%EC%89%AC/id6755587378';
+const ANDROID_DOWNLOAD_URL = 'https://play.google.com/store/apps/details?id=com.tutee.spoon';
+
+function setupDownloadLink(id, url) {
+  const link = document.getElementById(id);
+  if (url) {
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+  } else {
+    link.onclick = (e) => {
+      e.preventDefault();
+      showToast('다운로드 링크 준비 중입니다');
+    };
+  }
+}
+setupDownloadLink('ios-download-link', IOS_DOWNLOAD_URL);
+setupDownloadLink('android-download-link', ANDROID_DOWNLOAD_URL);
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.innerText = msg;
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 2000);
+}
+</script>
+</body>
+</html>
